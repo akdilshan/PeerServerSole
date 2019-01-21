@@ -1,7 +1,13 @@
 
 
 var PeerServer = require('peer').PeerServer;
-var server = PeerServer({port: 9000});
+//var server = PeerServer({port: 9000});
+//console.log("Server Started");
+
+var server = new PeerServer({
+	port: process.env.PORT || 9000,
+	key: 'peerjs'
+});
 console.log("Server Started");
 
 // var fs = require('fs');
