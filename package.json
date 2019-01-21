@@ -1,0 +1,23 @@
+{
+  "name": "peerjs-server",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "dependencies": {
+    "peer": "^0.2.10"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/peers/peerjs-server.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/peers/peerjs-server/issues"
+  },
+  "homepage": "https://github.com/peers/peerjs-server#readme"
+}
