@@ -1,7 +1,7 @@
 
 
 var PeerServer = require('peer').PeerServer;
-var server = PeerServer({port: 9000, path: '/myapp'});
+var server = PeerServer({port: 9000});
 console.log("Server Started");
 
 // var fs = require('fs');
