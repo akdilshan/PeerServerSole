@@ -1,32 +1,28 @@
 
 
-var PeerServer = require('peer').PeerServer;
-//var server = PeerServer({port: 9000});
-//console.log("Server Started");
+var express = require('express');
+var app = express();
+var ExpressPeerServer = require('peer').ExpressPeerServer;
 
-var server = new PeerServer({
-	port: process.env.PORT || 9000,
-	key: 'peerjs'
-});
-console.log("Server Started");
+app.get('/', function(req, res, next) { res.send('Hello world!'); });
 
-// var fs = require('fs');
-// var PeerServer= require('peer').PeerServer;
+// =======
 
-// var server=PeerServer({
-//     port:9000,
-//     ssl:{
-//         key: fs.readFileSync('./key.pem'),
-//         cert:fs.readFileSync('./cert.pem')
-//     },
-//     path: '/myapp'
-// });
-// console.log("Server Started");
+var server = app.listen(9000);
 
-server.on('connection', function(id) { 
-    console.log(id);
- });
+var options = {
+    debug: true
+}
 
- server.on('disconnect', function(id) { 
-    console.log(id);
-  });
+var peerserver = ExpressPeerServer(server, options);
+
+app.use('/api', peerserver);
+
+// == OR ==
+
+var server = require('http').createServer(app);
+var peerserver = ExpressPeerServer(server, options);
+
+app.use('/peerjs', peerserver);
+
+server.listen(9000);
